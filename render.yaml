@@ -1,0 +1,36 @@
+# Render Blueprint — Open Road Backend (placeholder)
+#
+# The current version of Open Road is 100% client-side (no database, no
+# API server). This blueprint creates a minimal placeholder service you
+# can deploy now and extend later for multiplayer / save-game features.
+#
+# To deploy:
+#   1. Push your repo to GitHub
+#   2. Go to https://dashboard.render.com → New → Blueprint
+#   3. Select your repo. Render will read this file automatically.
+#
+# After deploy, you'll get a URL like https://open-road-api.onrender.com
+# that returns { "status": "ok" }. Build multiplayer on top of it later.
+
+services:
+  - type: web
+    name: open-road-api
+    runtime: node
+    plan: free
+    region: oregon
+    branch: main
+    rootDir: server
+    buildCommand: npm install
+    startCommand: node index.js
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      # Add these when you implement multiplayer:
+      # - key: SUPABASE_URL
+      #   sync: false
+      # - key: SUPABASE_ANON_KEY
+      #   sync: false

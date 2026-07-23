@@ -1,0 +1,12 @@
+{
+  "name": "open-road-api",
+  "version": "1.0.0",
+  "description": "Placeholder backend for Open Road driving game (deploy to Render)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "keywords": ["open-road", "driving-game", "api"],
+  "license": "MIT"
+}
